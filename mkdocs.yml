@@ -2,4 +2,4 @@ site_name: Hacking Docs, CTFs, & Cheat Sheets
 theme: material
 nav:
   - Home: index.md
-  - HTB: hackthebox.md
+  - HTB - PermX: permx.md
