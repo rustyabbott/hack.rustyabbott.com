@@ -1,6 +1,7 @@
 # HackTheBox - PermX [Linux, Easy]
 
-## Scanning
+## Scanning with Nmap
+`nmap -A -T4 -vvv -oN nmapscan <IP-ADDRESS>`
 
 ```
 ──(kali㉿kali)-[~]
@@ -73,4 +74,28 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 11.14 seconds
 ```
+We see ports `80` and `22` are open.
 
+## Update Hosts File
+
+Upon visiting `10.10.11.23` in the browser, we get a redirect to `http://permx.htb`
+
+![permx.htb server not found](img/permx-server-not-found.png)
+
+So we add `permx.htb` to our hosts file.
+
+```
+┌──(kali㉿kali)-[/etc]
+└─$ cat /etc/hosts
+10.10.11.23     permx.htb
+
+127.0.0.1       localhost
+127.0.1.1       kali
+::1             localhost ip6-localhost ip6-loopback
+ff02::1         ip6-allnodes
+ff02::2         ip6-allrouters
+```
+
+And now we can view `permx.htb` in the browser:
+
+![permx.htb homepage](img/permx-homepage.png)
